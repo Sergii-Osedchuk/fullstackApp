@@ -6,7 +6,9 @@ import FoodDisplay from '../../components/FoodDisplay/FoodDisplay';
 import AppDownload from '../../components/AppDownload/AppDownload';
 
 function Home() {
-  const[category, setCategory] = useState('All');
+
+  const [category, setCategory] = useState('All');
+  
   return (
     <div>
       <Header />

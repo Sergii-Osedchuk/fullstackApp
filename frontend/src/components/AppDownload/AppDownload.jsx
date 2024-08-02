@@ -3,7 +3,7 @@ import { assets } from '../../assets/assets';
 
 function AppDownload() {
   return (
-    <div className='app-download' id='app=download'>
+    <div className='app-download' id='app-download'>
       <p>For Better Experiance Download <br /> Tomato App</p>
       <div className="app-download-platforms">
         <img src={assets.play_store} alt="" />
