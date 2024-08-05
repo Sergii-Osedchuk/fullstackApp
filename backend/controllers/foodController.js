@@ -28,7 +28,7 @@ const addFood = async (req, res) => {
 const listFood = async (req, res) => {
   try {
     const foods = await foodModal.find({});
-    res.json({ success: true, data:foods });
+    res.json({ success: true, data: foods });
   } catch (error) {
     console.log(error);
     res.json({success: false, message: "Error"})

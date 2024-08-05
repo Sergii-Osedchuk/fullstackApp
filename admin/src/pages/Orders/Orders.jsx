@@ -1,6 +1,6 @@
 import './Orders.css';
 
-function Orders() {
+function Orders({url}) {
   return (
     <div>
       
