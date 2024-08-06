@@ -1,4 +1,4 @@
-import { useState, createContext} from "react";
+import { useState, createContext, useEffect} from "react";
 import { food_list } from "../assets/assets";
 
 export const StoreContext = createContext(null);
@@ -32,6 +32,12 @@ const StoreContextProvider = ({ children }) => {
     }
     return totalAmount;
   }
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setToken(localStorage.getItem("token"));
+    }
+  }, []);
 
   const contextValue = {
     food_list,
