@@ -6,11 +6,11 @@ function AppDownload() {
     <div className='app-download' id='app-download'>
       <p>For Better Experiance Download <br /> Tomato App</p>
       <div className="app-download-platforms">
-        <img src={assets.play_store} alt="" />
-        <img src={assets.app_store} alt="" />
+        <img src={assets.play_store} alt="playstore picture" />
+        <img src={assets.app_store} alt="appstore picture" />
       </div>
     </div>
   )
 }
 
-export default AppDownload
+export default AppDownload;
