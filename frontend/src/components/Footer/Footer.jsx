@@ -31,8 +31,12 @@ function Footer() {
         <div className="footer-content-right">
           <h2>GET IN TOUCH</h2>
           <ul>
-            <li><a href="tel:+380988888833">+380988888833</a></li>
-            <li><a href="mailto:likeyou@tomato.com">likeyou@tomato.com</a></li>
+            <li>
+              <a href="tel:+380988888833">+380988888833</a>
+            </li>
+            <li>
+              <a href="mailto:likeyou@tomato.com">likeyou@tomato.com</a>
+            </li>
           </ul>
         </div>
       </div>

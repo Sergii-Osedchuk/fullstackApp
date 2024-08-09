@@ -13,18 +13,18 @@ function LoginPopup({ setShowLogin }) {
   const onChangeHandler = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setData(data => ({
-      ...data, [name]: value
+    setData((data) => ({
+      ...data,
+      [name]: value,
     }));
-  }
+  };
 
   const onLogin = async (event) => {
     event.preventDefault();
     let newUrl = url;
     if (currState === "Login") {
       newUrl += "/api/user/login";
-    }
-    else {
+    } else {
       newUrl += "/api/user/register";
     }
 
@@ -34,12 +34,10 @@ function LoginPopup({ setShowLogin }) {
       setToken(response.data.token);
       localStorage.setItem("token", response.data.token);
       setShowLogin(false);
-    }
-    else {
+    } else {
       alert(response.data.message);
     }
-  }
-
+  };
 
   return (
     <div className="login-popup">
@@ -56,14 +54,14 @@ function LoginPopup({ setShowLogin }) {
           {currState === "Login" ? (
             <></>
           ) : (
-              <input
-                onChange={onChangeHandler}
-                name="name"
-                value={data.name}
-                type="text"
-                placeholder="Your name"
-                required
-              />
+            <input
+              onChange={onChangeHandler}
+              name="name"
+              value={data.name}
+              type="text"
+              placeholder="Your name"
+              required
+            />
           )}
           <input
             onChange={onChangeHandler}
@@ -82,7 +80,9 @@ function LoginPopup({ setShowLogin }) {
             required
           />
         </div>
-        <button type="submit">{currState === "Sign up" ? "Create account" : "Login"}</button>
+        <button type="submit">
+          {currState === "Sign up" ? "Create account" : "Login"}
+        </button>
         <div className="login-popup-condition">
           <input type="checkbox" required />
           <p>By continuing i agree to the terms of use</p>
