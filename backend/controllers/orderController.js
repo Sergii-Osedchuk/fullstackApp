@@ -20,7 +20,7 @@ const placeOrder = async (req, res) => {
 
     const line_items = req.body.items.map((item) => ({
       price_data: {
-        currency: "usd",
+        currency: "inr",
         product_data: {
           name: item.name,
         },
@@ -31,7 +31,7 @@ const placeOrder = async (req, res) => {
 
     line_items.push({
       price_data: {
-        currency: "usd",
+        currency: "inr",
         product_data: {
           name: "Delivery Charges",
         },
@@ -49,8 +49,38 @@ const placeOrder = async (req, res) => {
 
     res.json({ success: true, session_url: session.url });
   } catch (error) {
-    res.json({ success: false, message: "error" });
+    console.log(error);
+    res.json({ success: false, message: "You cant use stripe in Ukraine" });
   }
 };
 
-export { placeOrder };
+const verifyOrder = async (req, res) => {
+  const { orderId, success } = req.body;
+  try {
+    if (success === "true") {
+      await orderModel.findByIdAndUpdate(orderId, { payment: true });
+      res.json({ success: true, message: "Paid" });
+    }
+    else {
+      await orderModel.findByIdAndDelete(orderId);
+      res.json({success: false, message: "Not paid"})
+    }
+  } catch (error) {
+    console.log(error);
+    res.json({success: false, message: "Error"})
+  }
+}
+
+// user oders for fronend
+
+const userOrders = async (req, res) => {
+  try {
+    const orders = await orderModel.find({ userId: req.body.userId });
+    res.json({success: true, data: orders})
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error" });
+  }
+}
+
+export { placeOrder, verifyOrder, userOrders };
