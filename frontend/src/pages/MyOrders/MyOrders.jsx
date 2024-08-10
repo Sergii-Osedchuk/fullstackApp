@@ -25,7 +25,7 @@ function MyOrders() {
       <div className="container">
         {data.map((order) => {
           return (
-            <div key={order._id} className="my-orders-oder">
+            <div key={order._id} className="my-orders-order">
               <img src={assets.parcel_icon} alt="parcel icon" />
               <p>{order.items.map((item, index) => {
                 if (index === order.items.length - 1) {

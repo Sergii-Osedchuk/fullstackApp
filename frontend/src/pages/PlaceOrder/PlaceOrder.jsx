@@ -1,7 +1,8 @@
 import "./PlaceOrder.css";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../../context/StoreContext";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function PlaceOrder() {
   const { getTotalCartAmount, token, food_list, cartItems, url } =
@@ -52,6 +53,16 @@ function PlaceOrder() {
       alert("Testing... Sorry you are not able to make a payment" );
     }
   };
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/cart");
+    } else if (getTotalCartAmount() === 0) {
+      navigate("/cart");
+    }
+  }, [token])
 
   return (
     <form className="place-order" onSubmit={placeOrder}>
