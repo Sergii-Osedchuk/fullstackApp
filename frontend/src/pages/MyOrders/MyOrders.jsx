@@ -17,6 +17,7 @@ function MyOrders() {
     if (token) {
       fetchOrders();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   return (
