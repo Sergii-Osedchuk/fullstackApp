@@ -8,7 +8,7 @@ function Header() {
           Order your favorite food here
         </h2>
         <p>You can choose from a diverse menu delicious food</p>
-        <button>View Menu</button>
+        <button><a href="#explore-menu">View Menu</a></button>
       </div>
     </div>
   )
