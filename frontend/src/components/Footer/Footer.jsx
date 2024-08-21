@@ -1,7 +1,10 @@
 import "./Footer.css";
 import { assets } from "../../assets/assets";
+import { useNavigate } from 'react-router-dom';
 
 function Footer() {
+  const navigate = useNavigate();
+  
   return (
     <div className="footer" id="footer">
       <div className="footer-content">
@@ -22,7 +25,7 @@ function Footer() {
         <div className="footer-content-center">
           <h2>COMPANY</h2>
           <ul>
-            <li>Home</li>
+            <li onClick = {() => navigate('/')}>Home</li>
             <li>About us</li>
             <li>Delivery</li>
             <li>Privacy policy</li>
